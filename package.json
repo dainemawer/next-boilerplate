@@ -4,7 +4,7 @@
   "description": "A NextJS site for African Perfection",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
