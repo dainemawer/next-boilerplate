@@ -10,11 +10,15 @@
 
 import type { AppProps } from 'next/app'
 import Layout from '@components/Layout'
+import ErrorBoundary from '@components/ErrorBoundary'
+import 'tailwindcss/tailwind.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<Layout>
-			<Component {...pageProps} />
+			<ErrorBoundary>
+				<Component {...pageProps} />
+			</ErrorBoundary>
 		</Layout>
 
 	)
