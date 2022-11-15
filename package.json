@@ -1,0 +1,48 @@
+{
+  "name": "africanperfection",
+  "version": "1.0.0",
+  "description": "A NextJS site for African Perfection",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dainemawer/africanperfection.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dainemawer/africanperfection/issues"
+  },
+  "homepage": "https://github.com/dainemawer/africanperfection#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "eslint": "8.27.0",
+    "eslint-config-next": "13.0.3",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "typescript": "^4.8.4"
+  },
+  "workspaces": [
+    "design-system/*"
+  ],
+  "engines": {
+    "node": ">=16",
+    "npm": ">=7"
+  },
+  "dependencies": {
+    "next": "^13.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
