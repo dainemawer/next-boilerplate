@@ -1,5 +1,26 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ],
+      "@hocs/*": [
+        "hocs/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@util/*": [
+        "util/*"
+      ],
+    },
     "target": "es5",
     "lib": [
       "dom",
@@ -26,5 +47,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }
