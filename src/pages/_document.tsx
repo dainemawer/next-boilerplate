@@ -9,11 +9,14 @@
 */
 
 import { Html, Head, Main, NextScript } from 'next/document'
+import { GoogleAnalytics } from '@lib/gtag/analytics'
 
 export default function Document(): JSX.Element {
 	return (
 		<Html lang="en">
-			<Head />
+			<Head>
+				<GoogleAnalytics />
+			</Head>
 			<body>
 				<Main />
 				<NextScript />

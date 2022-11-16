@@ -16,7 +16,8 @@ import Layout from '@components/Layout'
 import ErrorBoundary from '@components/ErrorBoundary'
 import 'tailwindcss/tailwind.css'
 import { sendPageView } from '@lib/gtag'
-import { GoogleAnalytics } from '@lib/gtag/analytics';
+import { sendToAnalytics } from '@lib/gtag/analytics';
+import { SiteContext, store } from '@context/SiteContext';
 
 import SEO from '../next-seo.config';
 
@@ -38,22 +39,19 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 	}, [router.events])
 
 	return (
-		<Layout>
-			<ErrorBoundary>
-				<DefaultSeo {...SEO} />
-				<GoogleAnalytics />
-				<Component {...pageProps} />
-			</ErrorBoundary>
-		</Layout>
+		<SiteContext.Provider value={store}>
+			<Layout>
+				<ErrorBoundary>
+					<DefaultSeo {...SEO} />
+					<Component {...pageProps} />
+				</ErrorBoundary>
+			</Layout>
+		</SiteContext.Provider>
 	)
 }
 
 export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
-	window.gtag('event', name, {
-		event_category:
-			label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
-		value: Math.round(name === 'CLS' ? value * 1000 : value),
-		event_label: id,
-		non_interaction: true,
-	});
+	if (typeof window !== 'undefined') {
+		sendToAnalytics(id, name, label, value);
+	}
 }
