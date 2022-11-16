@@ -8,7 +8,7 @@
  * @returns {JSX.Element}
 */
 
-import type { AppProps } from 'next/app'
+import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo';
@@ -46,4 +46,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			</ErrorBoundary>
 		</Layout>
 	)
+}
+
+export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
+	window.gtag('event', name, {
+		event_category:
+			label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+		value: Math.round(name === 'CLS' ? value * 1000 : value),
+		event_label: id,
+		non_interaction: true,
+	});
 }
