@@ -8,9 +8,15 @@
  * @returns {JSX.Element}
 */
 
+import { NextSeo } from 'next-seo';
+
 export default function FiveZeroZero(): JSX.Element {
 	return (
 		<div>
+			<NextSeo
+				title="500 Error"
+				description="A short description goes here."
+			/>
 			<h1>500 - Internal Server Error</h1>
 		</div>
 	)
