@@ -9,14 +9,18 @@
 */
 
 import type { AppProps } from 'next/app'
+import { DefaultSeo } from 'next-seo';
 import Layout from '@components/Layout'
 import ErrorBoundary from '@components/ErrorBoundary'
 import 'tailwindcss/tailwind.css'
+
+import SEO from '../next-seo.config';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<Layout>
 			<ErrorBoundary>
+				<DefaultSeo {...SEO} />
 				<Component {...pageProps} />
 			</ErrorBoundary>
 		</Layout>

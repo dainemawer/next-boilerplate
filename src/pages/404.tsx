@@ -8,9 +8,15 @@
  * @returns {JSX.Element}
 */
 
+import { NextSeo } from 'next-seo';
+
 export default function FourZeroFour(): JSX.Element {
 	return (
 		<div>
+			<NextSeo
+				title="404 Error"
+				description="A short description goes here."
+			/>
 			<h1>404 - Page Not Found</h1>
 		</div>
 	)
