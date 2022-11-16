@@ -7,8 +7,18 @@
  * @returns {JSX.Element}
 */
 
+import Header from '@components/Header'
+import Footer from '@components/Footer'
+import SkipLink from '@components/SkipLink'
+
 export default function Layout({ children }): JSX.Element {
 	return (
-		<main>{children}</main>
+		<>
+			<SkipLink />
+			<Header />
+			<main>{children}</main>
+			<Footer />
+		</>
+
 	)
 }
