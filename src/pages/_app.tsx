@@ -16,7 +16,7 @@ import Layout from '@components/Layout'
 import ErrorBoundary from '@components/ErrorBoundary'
 import 'tailwindcss/tailwind.css'
 import { sendPageView } from '@lib/gtag'
-import { sendToAnalytics } from '@lib/gtag/analytics';
+import { GoogleAnalytics, sendToAnalytics } from '@lib/gtag/analytics';
 import { SiteContext, store } from '@context/SiteContext';
 
 import SEO from '../next-seo.config';
@@ -43,6 +43,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			<Layout>
 				<ErrorBoundary>
 					<DefaultSeo {...SEO} />
+					<GoogleAnalytics />
 					<Component {...pageProps} />
 				</ErrorBoundary>
 			</Layout>

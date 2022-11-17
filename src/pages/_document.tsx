@@ -14,12 +14,21 @@ import { GoogleAnalytics } from '@lib/gtag/analytics'
 export default function Document(): JSX.Element {
 	return (
 		<Html lang="en">
-			<Head>
-				<GoogleAnalytics />
-			</Head>
+			<Head />
 			<body className="site-name">
 				<Main />
 				<NextScript />
+
+				{/* Support for window.gtag on the server */}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
+						`,
+					}}
+				/>
 			</body>
 		</Html>
 	)
