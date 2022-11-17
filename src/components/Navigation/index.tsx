@@ -6,8 +6,13 @@
  * @returns {JSX.Element}
 */
 
-export default function Navigation(): JSX.Element {
+interface NavigationProps {
+	id: string,
+	label: string
+}
+
+export default function Navigation({ id, label }: NavigationProps): JSX.Element {
 	return (
-		<nav />
+		<nav className="site-navigation" id={id} role="navigation" aria-label={label} />
 	)
 }

@@ -8,6 +8,6 @@
 
 export default function Footer(): JSX.Element {
 	return (
-		<footer />
+		<footer className="site-footer" id="site-footer" role="contentinfo" aria-label="Site Footer" />
 	)
 }
