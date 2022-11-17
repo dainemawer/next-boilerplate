@@ -17,7 +17,7 @@ export default function Document(): JSX.Element {
 			<Head>
 				<GoogleAnalytics />
 			</Head>
-			<body>
+			<body className="site-name">
 				<Main />
 				<NextScript />
 			</body>

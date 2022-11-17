@@ -8,6 +8,6 @@
 
 export default function Header(): JSX.Element {
 	return (
-		<header />
+		<header className="site-header" id="site-header" role="banner" aria-label="Site Header" />
 	)
 }
