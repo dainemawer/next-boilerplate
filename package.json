@@ -53,6 +53,7 @@
   "dependencies": {
     "next": "^13.0.3",
     "next-seo": "^5.14.1",
+    "outstatic": "^0.0.33-rc",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
