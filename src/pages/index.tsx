@@ -7,14 +7,31 @@
 */
 
 import { NextSeo } from 'next-seo';
+import { getDocuments } from 'outstatic/server'
 
-export default function Home(): JSX.Element {
+export default function Home({ pages }): JSX.Element {
 	return (
 		<>
 			<NextSeo
 				title="Home"
 			/>
+			{console.log(pages)}
 			<h1>Home</h1>
 		</>
 	)
+}
+
+export const getServerSideProps = async () => {
+	const pages = getDocuments('pages', [
+		'title',
+		'publishedAt',
+		'slug',
+		'coverImage',
+		'description',
+		'author'
+	])
+
+	return {
+		props: { pages }
+	}
 }
