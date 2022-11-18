@@ -16,10 +16,16 @@ interface PostsProps {
 		slug: string
 		publishedAt: string
 		status: string
+	}[],
+	pages: {
+		title: string
+		slug: string
+		publishedAt: string
+		status: string
 	}[]
 }
 
-export default function Home({ posts }: PostsProps): JSX.Element {
+export default function Home({ posts, pages }: PostsProps): JSX.Element {
 	return (
 		<>
 			<NextSeo
@@ -36,6 +42,16 @@ export default function Home({ posts }: PostsProps): JSX.Element {
 					))}
 				</ul>
 			)}
+			<h3>Pages</h3>
+			{pages && pages.length > 0 && (
+				<ul>
+					{pages.map((page) => (
+						<li key={page.slug}>
+							<Link href={page.slug}>{page.title}</Link>
+						</li>
+					))}
+				</ul>
+			)}
 		</>
 	)
 }
@@ -43,8 +59,9 @@ export default function Home({ posts }: PostsProps): JSX.Element {
 export const getServerSideProps = async () => {
 	const params = ['title', 'slug']
 	const posts = getDocuments('posts', params)
+	const pages = getDocuments('pages', params)
 
 	return {
-		props: { posts }
+		props: { posts, pages }
 	}
 }

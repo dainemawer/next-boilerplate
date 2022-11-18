@@ -1,4 +1,5 @@
-import { getDocumentBySlug } from 'outstatic/server'
+import { getDocumentBySlug, getDocumentPaths } from 'outstatic/server'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import convertToHTML from '@util/remark'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
@@ -34,16 +35,23 @@ export default function Post({ post }: Post) {
 		return <ErrorPage statusCode={404} />
 	}
 
-
 	return (
 		<article>
 			<h1>{post.title}</h1>
+			<div dangerouslySetInnerHTML={{ __html: post.content }} />
+			<ul>
+				<li>Slug: {post.slug}</li>
+				<li>Title: {post.title}</li>
+				<li>Published At: {post.publishedAt}</li>
+				<li>Cover Image: {post.coverImage}</li>
+				<li>Author: {post.author.name}</li>
+			</ul>
 		</article>
 	)
 
 }
 
-export async function getServerSideProps({ params }: Params) {
+export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
 	const post = getDocumentBySlug('posts', params.slug, [
 		'title',
 		'publishedAt',
@@ -62,5 +70,12 @@ export async function getServerSideProps({ params }: Params) {
 				content
 			}
 		}
+	}
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	return {
+		paths: getDocumentPaths('posts'),
+		fallback: false
 	}
 }
