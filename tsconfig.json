@@ -23,6 +23,9 @@
       "@util/*": [
         "util/*"
       ],
+      "@design-system/*": [
+        "design-system/components/*"
+      ],
     },
     "target": "es5",
     "lib": [
@@ -48,6 +51,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/**/*",
+    "design-system/components/**/*",
   ],
   "exclude": [
     "node_modules"
