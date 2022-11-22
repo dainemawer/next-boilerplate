@@ -1,0 +1,106 @@
+@design-tokens url('../../../tokens.json') format('style-dictionary3');
+
+.button {
+	background-color: transparent;
+	border: 2px solid transparent;
+	cursor: pointer;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 600;
+	letter-spacing: 3px;
+	line-height: 1.3;
+	padding: 0.5rem 2.25rem;
+	text-transform: uppercase;
+}
+
+.primary {
+	background-color: design-token('color.black');
+	color: design-token('color.white');
+
+	&:hover,
+	&:focus {
+		background-color: design-token('color.white');
+		border-color: design-token('color.black');
+		color: design-token('color.black');
+	}
+
+	&:disabled {
+		color: design-token('color.gray');
+		background-color: design-token('color.darkgrey');
+	}
+
+	&:disabled:hover,
+	&:disabled:focus {
+		border-color: transparent;
+		cursor: not-allowed;
+	}
+
+	&.inverted {
+		background-color: design-token('color.white');
+		color: design-token('color.black');
+	}
+}
+
+.secondary {
+	background-color: design-token('color.white');
+	border-color: design-token('color.black');
+	color: design-token('color.black');
+
+	&:hover,
+	&:focus {
+		background-color: design-token('color.black');
+		color: design-token('color.white');
+	}
+
+	&:disabled {
+		color: design-token('color.gray');
+		border-color: design-token('color.darkgrey');
+	}
+
+	&:disabled:hover,
+	&:disabled:focus {
+		border-color: design-token('color.darkgrey');
+		background-color: design-token('color.white');
+		color: design-token('color.gray');
+		cursor: not-allowed;
+	}
+
+	&.inverted {
+		background-color: design-token('color.black');
+		border-color: design-token('color.white');
+		color: design-token('color.white');
+	}
+}
+
+.icon {
+	align-items: center;
+	display: flex;
+	line-height: 1;
+}
+
+.glyph {
+	height: 20px;
+	margin-right: 0.875rem;
+	width: 20px;
+}
+
+.link {
+	border-bottom: 2px solid transparent;
+	color: design-token('color.red');
+	font-weight: 600;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:hover,
+	&:focus {
+		border-bottom-color: design-token('color.red');
+	}
+}
+
+.category {
+	--button-bg-color: var(--color-category);
+}
+
+.category-tech {
+	--color-category: var(--color-category-tech);
+}
